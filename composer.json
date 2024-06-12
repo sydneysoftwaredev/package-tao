@@ -24,6 +24,13 @@
   "minimum-stability": "stable",
   "prefer-stable": true,
   "require": {
-    "oat-sa/tao-community": "2022.11.6"
+    "oat-sa/tao-community": "2024.06.1"
+  },
+  "config": {
+    "allow-plugins": {
+      "php-http/discovery": true,
+      "oat-sa/oatbox-extension-installer": true,
+      "oat-sa/composer-npm-bridge": true
+    }
   }
 }
