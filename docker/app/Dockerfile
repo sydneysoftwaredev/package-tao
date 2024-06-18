@@ -14,4 +14,11 @@ FROM local/phpfpm:latest
 
 COPY --from=BUILD_PACKAGE /buildapp/vendor /var/www/html/vendor
 
+# Xdebug
+
+RUN pecl install xdebug && \
+    docker-php-ext-enable xdebug
+
+COPY docker/app/conf/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+
 WORKDIR /var/www/html
