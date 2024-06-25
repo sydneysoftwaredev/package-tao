@@ -21,4 +21,7 @@ RUN pecl install xdebug && \
 
 COPY docker/app/conf/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
+# Clean pear cache
+RUN rm -r /tmp/pear
+
 WORKDIR /var/www/html
