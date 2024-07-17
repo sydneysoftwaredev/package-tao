@@ -20,3 +20,9 @@
     ```
 
 3. Access site at `http://tao.localhost`
+
+## To add extensions
+
+```shell
+docker run -it --rm --mount src=`pwd`,target=/app,type=bind --workdir /app joeniland/laravel-ci:8.1-20240612 composer require oat-sa/extension-tao-devtools --dev 
+```

@@ -23,8 +23,15 @@
   "homepage": "http://www.taotesting.com",
   "minimum-stability": "stable",
   "prefer-stable": true,
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/joe-niland/taoExtensionTest.git"
+    }
+  ],
   "require": {
-    "oat-sa/tao-community": "2024.06.1"
+    "oat-sa/tao-community": "2024.06.1",
+    "joe-niland/tao-extension-test": "dev-main"
   },
   "config": {
     "allow-plugins": {
@@ -32,5 +39,8 @@
       "oat-sa/oatbox-extension-installer": true,
       "oat-sa/composer-npm-bridge": true
     }
+  },
+  "require-dev": {
+    "oat-sa/extension-tao-devtools": "^8.10"
   }
 }
