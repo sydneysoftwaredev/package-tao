@@ -1813,10 +1813,10 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joe-niland/taoExtensionTest.git",
-                "reference": "07955c36f56e22ec29f099f9c2f2255bc0574aa6"
+                "reference": "4e67ca8167f6420f48551f52f30a6423a0df1d23"
             },
             "require": {
-                "easyrdf/easyrdf": "^1.1"
+                "oat-sa/tao-core": ">=54.14.3"
             },
             "default-branch": true,
             "type": "tao-extension",
@@ -1825,7 +1825,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "JoeNiland\\TaoExtensionTest\\": ""
+                    "JoeNiland\\taoExtensionTest\\": ""
                 }
             },
             "license": [
@@ -1838,7 +1838,7 @@
                 }
             ],
             "description": "Sample extension",
-            "time": "2024-07-17T11:19:30+00:00"
+            "time": "2024-07-23T07:03:15+00:00"
         },
         {
             "name": "jtl-software/opsgenie-client",
@@ -6897,16 +6897,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "3.0.39",
+            "version": "3.0.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "211ebc399c6e73c225a018435fe5ae209d1d1485"
+                "reference": "621c73f7dcb310b61de34d1da4c4204e8ace6ceb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/211ebc399c6e73c225a018435fe5ae209d1d1485",
-                "reference": "211ebc399c6e73c225a018435fe5ae209d1d1485",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/621c73f7dcb310b61de34d1da4c4204e8ace6ceb",
+                "reference": "621c73f7dcb310b61de34d1da4c4204e8ace6ceb",
                 "shasum": ""
             },
             "require": {
@@ -6987,7 +6987,7 @@
             ],
             "support": {
                 "issues": "https://github.com/phpseclib/phpseclib/issues",
-                "source": "https://github.com/phpseclib/phpseclib/tree/3.0.39"
+                "source": "https://github.com/phpseclib/phpseclib/tree/3.0.41"
             },
             "funding": [
                 {
@@ -7003,20 +7003,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-06-24T06:27:33+00:00"
+            "time": "2024-08-12T00:13:54+00:00"
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "1.29.1",
+            "version": "1.30.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "fcaefacf2d5c417e928405b71b400d4ce10daaf4"
+                "reference": "5ceb0e384997db59f38774bf79c2a6134252c08f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/fcaefacf2d5c417e928405b71b400d4ce10daaf4",
-                "reference": "fcaefacf2d5c417e928405b71b400d4ce10daaf4",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/5ceb0e384997db59f38774bf79c2a6134252c08f",
+                "reference": "5ceb0e384997db59f38774bf79c2a6134252c08f",
                 "shasum": ""
             },
             "require": {
@@ -7048,9 +7048,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.29.1"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.30.0"
             },
-            "time": "2024-05-31T08:52:43+00:00"
+            "time": "2024-08-29T09:54:52+00:00"
         },
         {
             "name": "pimple/pimple",
@@ -10754,16 +10754,16 @@
         },
         {
             "name": "oat-sa/extension-tao-devtools",
-            "version": "v8.10.0",
+            "version": "v8.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oat-sa/extension-tao-devtools.git",
-                "reference": "0e74b8963b5eebb50286a981a89f28b9fee34157"
+                "reference": "8563134bd084c9f3897317c063f2f425be085fd6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oat-sa/extension-tao-devtools/zipball/0e74b8963b5eebb50286a981a89f28b9fee34157",
-                "reference": "0e74b8963b5eebb50286a981a89f28b9fee34157",
+                "url": "https://api.github.com/repos/oat-sa/extension-tao-devtools/zipball/8563134bd084c9f3897317c063f2f425be085fd6",
+                "reference": "8563134bd084c9f3897317c063f2f425be085fd6",
                 "shasum": ""
             },
             "require": {
@@ -10838,9 +10838,9 @@
             "support": {
                 "forum": "http://forum.taotesting.com",
                 "issues": "https://github.com/oat-sa/extension-tao-devtools/issues",
-                "source": "https://github.com/oat-sa/extension-tao-devtools/tree/v8.10.0"
+                "source": "https://github.com/oat-sa/extension-tao-devtools/tree/v8.11.0"
             },
-            "time": "2023-11-02T16:00:34+00:00"
+            "time": "2024-08-02T13:37:45+00:00"
         },
         {
             "name": "symfony/process",

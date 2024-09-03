@@ -1,7 +1,10 @@
 # Docker Setup
 
-1. `docker-compose up -d`
-2. Run install script in app container:
+After cloning <https://github.com/oat-sa/package-tao>, do the following:
+
+1. `docker compose up -d`
+2. `./shell.sh composer install`
+3. Run install script in app container:
 
     ```shell
     docker exec -it --user www-data tao_phpfpm php tao/scripts/taoInstall.php \
@@ -19,7 +22,7 @@
     -vvv -e taoCe
     ```
 
-3. Access site at `http://tao.localhost`
+4. Access site at `http://tao.localhost`
 
 ## To add extensions
 
