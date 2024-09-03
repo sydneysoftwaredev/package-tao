@@ -13,7 +13,7 @@ After cloning <https://github.com/oat-sa/package-tao>, do the following:
     --db_name tao \
     --db_user tao \
     --db_pass tao \
-    --file_path /var/www/html \
+    --file_path /var/www/html/data \
     --module_namespace http://sample/first.rdf \
     --module_url http://tao.localhost \
     --instance_name tao \
