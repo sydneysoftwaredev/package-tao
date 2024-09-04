@@ -52,3 +52,4 @@ vendor/
 
 # Profiling
 clockwork-web/
+.env

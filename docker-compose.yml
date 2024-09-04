@@ -68,8 +68,8 @@ services:
       context: .
       dockerfile: ./docker/newrelic/Dockerfile
       args:
-        NEW_RELIC_AGENT_VERSION: 10.10.0.1
-        NEW_RELIC_LICENSE_KEY: ${NEW_RELIC_LICENSE_KEY}
+        NEW_RELIC_AGENT_VERSION: 11.1.0.14
+        NEW_RELIC_LICENCE_KEY: ${NEW_RELIC_LICENCE_KEY}
         NEW_RELIC_APPNAME: tao
         IMAGE_NAME: package-tao-tao_phpfpm
     volumes:
@@ -92,6 +92,11 @@ services:
     volumes:
       - tao_mariadb_data:/var/lib/mysql:cached
 
+  newrelic-php-daemon:
+    image: newrelic/php-daemon
+    networks:
+      - newrelic-php
+
 volumes:
   tao_mariadb_data:
     driver: local
@@ -100,4 +105,3 @@ networks:
   tao_network:
     driver: bridge
   newrelic-php:
-    external: true
