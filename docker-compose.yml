@@ -30,7 +30,8 @@ services:
     ports:
       - "8085:80"
     volumes_from:
-      - tao_phpfpm
+      # - tao_phpfpm
+      - tao_phpfpm_newrelic
     volumes:
       - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf:cached
     working_dir: /etc/nginx/conf.d
@@ -42,7 +43,7 @@ services:
     entrypoint: ["echo", "Base image only"]
 
   tao_phpfpm:
-    container_name: tao_phpfpm
+    # container_name: tao_phpfpm
     build:
       context: .
       dockerfile: ./docker/app/Dockerfile
@@ -52,6 +53,28 @@ services:
       - tao_network
     volumes:
       - .:/var/www/html:cached
+      - /tmp/profiles:/tmp/profiles
+    working_dir: /var/www/html
+    entrypoint: ["echo", "Base image only"]
+
+  tao_phpfpm_newrelic:
+    container_name: tao_phpfpm
+    networks:
+      - newrelic-php
+      - tao_network
+    expose:
+      - 9000
+    build:
+      context: .
+      dockerfile: ./docker/newrelic/Dockerfile
+      args:
+        NEW_RELIC_AGENT_VERSION: 10.10.0.1
+        NEW_RELIC_LICENSE_KEY: ${NEW_RELIC_LICENSE_KEY}
+        NEW_RELIC_APPNAME: tao
+        IMAGE_NAME: package-tao-tao_phpfpm
+    volumes:
+      - .:/var/www/html:cached
+      - /tmp/profiles:/tmp/profiles
     working_dir: /var/www/html
 
   tao_db:
@@ -76,3 +99,5 @@ volumes:
 networks:
   tao_network:
     driver: bridge
+  newrelic-php:
+    external: true

@@ -31,7 +31,8 @@
   ],
   "require": {
     "oat-sa/tao-community": "2024.08.1",
-    "joe-niland/tao-extension-test": "dev-main"
+    "joe-niland/tao-extension-test": "dev-main",
+    "itsgoingd/clockwork": "^5.2"
   },
   "config": {
     "allow-plugins": {

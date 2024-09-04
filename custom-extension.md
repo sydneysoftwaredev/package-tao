@@ -37,7 +37,7 @@
 ## Installation
 
 1. Set DEBUG_MODE to true in `config/generis.conf.php`
-2. Enable debug logging by adding the following to `config/generis/log.conf.php`:
+2. Enable debug logging by modifying `config/generis/log.conf.php` to add the following:
 
     ```php
         return new oat\oatbox\log\LoggerService(
