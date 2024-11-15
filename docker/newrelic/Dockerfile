@@ -15,5 +15,9 @@ RUN sed -i \
   -e "s/newrelic.license[[:space:]]*=[[:space:]]*.*/newrelic.license = ${NEW_RELIC_LICENCE_KEY}/" \
   -e "s/newrelic.appname[[:space:]]*=[[:space:]]*.*/newrelic.appname = ${NEW_RELIC_APPNAME}/" \
   -e "\$a newrelic.daemon.address=newrelic-php-daemon:31339" \
-  -e "s/;newrelic.attributes.include = \"\"/newrelic.attributes.include = \"request.parameters.*\"/" \
+  -e "s/;newrelic.transaction_events.attributes.include = \"\"/newrelic.transaction_events.attributes.include = \"request.parameters.*\"/" \
+  -e "s/;newrelic.transaction_tracer.attributes.include = \"\"/newrelic.transaction_tracer.attributes.include = \"request.parameters.*\"/" \
+  -e "s/;newrelic.error_collector.attributes.include = \"\"/newrelic.error_collector.attributes.include = \"request.parameters.*\"/" \
+  -e "s/;newrelic.browser_monitoring.attributes.enabled = false/newrelic.browser_monitoring.attributes.enabled = true/" \
+  -e "s/;newrelic.browser_monitoring.attributes.include = \"\"/newrelic.browser_monitoring.attributes.include = \"request.parameters.*\"/" \
   /usr/local/etc/php/conf.d/newrelic.ini

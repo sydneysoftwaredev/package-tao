@@ -43,7 +43,7 @@ services:
     entrypoint: ["echo", "Base image only"]
 
   tao_phpfpm:
-    # container_name: tao_phpfpm
+    container_name: tao_phpfpm
     build:
       context: .
       dockerfile: ./docker/app/Dockerfile
@@ -55,27 +55,27 @@ services:
       - .:/var/www/html:cached
       - /tmp/profiles:/tmp/profiles
     working_dir: /var/www/html
-    entrypoint: ["echo", "Base image only"]
+    # entrypoint: ["echo", "Base image only"]
 
-  tao_phpfpm_newrelic:
-    container_name: tao_phpfpm
-    networks:
-      - newrelic-php
-      - tao_network
-    expose:
-      - 9000
-    build:
-      context: .
-      dockerfile: ./docker/newrelic/Dockerfile
-      args:
-        NEW_RELIC_AGENT_VERSION: 11.1.0.14
-        NEW_RELIC_LICENCE_KEY: ${NEW_RELIC_LICENCE_KEY}
-        NEW_RELIC_APPNAME: tao
-        IMAGE_NAME: package-tao-tao_phpfpm
-    volumes:
-      - .:/var/www/html:cached
-      - /tmp/profiles:/tmp/profiles
-    working_dir: /var/www/html
+  # tao_phpfpm_newrelic:
+  #   container_name: tao_phpfpm
+  #   networks:
+  #     - newrelic-php
+  #     - tao_network
+  #   expose:
+  #     - 9000
+  #   build:
+  #     context: .
+  #     dockerfile: ./docker/newrelic/Dockerfile
+  #     args:
+  #       NEW_RELIC_AGENT_VERSION: 11.1.0.14
+  #       NEW_RELIC_LICENCE_KEY: ${NEW_RELIC_LICENCE_KEY}
+  #       NEW_RELIC_APPNAME: tao
+  #       IMAGE_NAME: package-tao-tao_phpfpm
+  #   volumes:
+  #     - .:/var/www/html:cached
+  #     - /tmp/profiles:/tmp/profiles
+  #   working_dir: /var/www/html
 
   tao_db:
     container_name: tao_db
@@ -92,10 +92,10 @@ services:
     volumes:
       - tao_mariadb_data:/var/lib/mysql:cached
 
-  newrelic-php-daemon:
-    image: newrelic/php-daemon
-    networks:
-      - newrelic-php
+  # newrelic-php-daemon:
+  #   image: newrelic/php-daemon
+  #   networks:
+  #     - newrelic-php
 
 volumes:
   tao_mariadb_data:

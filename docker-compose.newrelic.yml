@@ -42,20 +42,20 @@ services:
       context: ./docker/phpfpm
     entrypoint: ["echo", "Base image only"]
 
-  tao_phpfpm:
-    # container_name: tao_phpfpm
-    build:
-      context: .
-      dockerfile: ./docker/app/Dockerfile
-    expose:
-      - 9000
-    networks:
-      - tao_network
-    volumes:
-      - .:/var/www/html:cached
-      - /tmp/profiles:/tmp/profiles
-    working_dir: /var/www/html
-    entrypoint: ["echo", "Base image only"]
+  # tao_phpfpm:
+  #   # container_name: tao_phpfpm
+  #   build:
+  #     context: .
+  #     dockerfile: ./docker/app/Dockerfile
+  #   expose:
+  #     - 9000
+  #   networks:
+  #     - tao_network
+  #   volumes:
+  #     - .:/var/www/html:cached
+  #     - /tmp/profiles:/tmp/profiles
+  #   working_dir: /var/www/html
+  #   entrypoint: ["echo", "Base image only"]
 
   tao_phpfpm_newrelic:
     container_name: tao_phpfpm
@@ -91,14 +91,34 @@ services:
       MYSQL_DATABASE: tao
     volumes:
       - tao_mariadb_data:/var/lib/mysql:cached
+      - ./docker/mariadb/conf/init/newrelic.sql:/docker-entrypoint-initdb.d/newrelic.sql
 
   newrelic-php-daemon:
     image: newrelic/php-daemon
     networks:
       - newrelic-php
 
+  newrelic-infra:
+    image: newrelic/infrastructure-bundle
+    networks:
+      - tao_network
+    cap_add:
+      - SYS_PTRACE
+    privileged: true
+    pid: host
+    environment:
+      NRIA_LICENSE_KEY: ${NEW_RELIC_LICENCE_KEY}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - newrelic-infra:/etc/newrelic-infra
+      - /:/host:ro
+      - ./docker/newrelic-infra/conf/mariadb.yml:/etc/newrelic-infra/integrations.d/mysql-config.yml
+      - ./docker/newrelic-infra/conf/mariadb-log.yml:/etc/newrelic-infra/logging.d/mysql-log.yml
+
 volumes:
   tao_mariadb_data:
+    driver: local
+  newrelic-infra:
     driver: local
 
 networks:
